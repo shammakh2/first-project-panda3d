@@ -33,4 +33,4 @@ class MyAp(ShowBase):
             self.camera.setHpr(angleDegrees, 0, 0)
             return Task.cont
 
-MyAp().run()
+MyAp.run()

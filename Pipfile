@@ -7,5 +7,6 @@ verify_ssl = true
 
 [packages]
 panda3d = "*"
+
 [requires]
 python_version = "3.7"
