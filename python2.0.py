@@ -10,10 +10,15 @@ parse_panda_controls.add_argument('--spinCamera', '--sc', type=str,
 parse_panda_args = parse_panda_controls.parse_args()
 print(parse_panda_args.spinCamera)
 
+allow_spin = True
+
 if parse_panda_args.spinCamera == 1 or parse_panda_args.spinCamera.lower() == "true":
-    print(parse_panda_args.spinCamera, "true")
+    print(parse_panda_args.spinCamera, "true1")
+    allow_spin = True
+
 elif parse_panda_args.spinCamera == "0" or parse_panda_args.spinCamera.lower() == "false":
-    print(parse_panda_args.spinCamera, "false")
+    print(parse_panda_args.spinCamera, "false1")
+    allow_spin = False
 
 
 class MyAp(ShowBase):
@@ -25,15 +30,16 @@ class MyAp(ShowBase):
         self.scene.setScale(0.25, 0.25, 0.25)
         self.scene.setPos(-8, 42, 0)
 
-        # Add the spinCameraTask procedure to the task manager.
-        self.taskMgr.add(self.spinCameraTask, "SpinCameraTask")
-
         # Add 3d panda
         self.pandaActor = Actor("models/panda-model", {"walk": "models/panda-walk4"})
         self.pandaActor.setScale(0.005, 0.005, 0.005)
         self.pandaActor.reparentTo(self.render)
         # Loop panda animation
         self.pandaActor.loop("walk")
+
+        # Add the spinCameraTask procedure to the task manager.
+        self.taskMgr.add(self.spinCameraTask, "SpinCameraTask")
+
 
         nature_sound = self.loader.loadSfx("nature.mp3")
         nature_sound.setLoop(True)
@@ -44,11 +50,14 @@ class MyAp(ShowBase):
 
     # move camera.
     def spinCameraTask(self, task):
-        angleDegrees = task.time * 6.0
+        if allow_spin == True:
+            angleDegrees = task.time * 6.0
+        elif allow_spin == False:
+            angleDegrees = 1
+
         angleRadians = angleDegrees * (pi / 180.0)
         self.camera.setPos(20 * sin(angleRadians), -20.0 * cos(angleRadians), 3)
         self.camera.setHpr(angleDegrees, 0, 0)
         return Task.cont
-
 
 MyAp().run()
