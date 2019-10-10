@@ -10,7 +10,7 @@ It has sights and sounds of a forest and also bear roars.
 <br>It is poorly and inefficiently coded due to my inability to code and deal with python yet but it is still fun to 
 mess with. 
 
-####Details of functionality:
+<h4>Details of functionality:
 
 Type `python hello_world.py` to test and see some useful information about python version.
 
@@ -32,7 +32,8 @@ You can execute commands by passing in arguments with appropriate keys.
 >python python2.0.py --sc <True/False or Integer value> --ap <True/False or Integer value>
 
 Integer value that is `>0` is considered positive
-######Example commands
+<h5> Example commands
+
 Type `python python2.0.py --sc 0 --ap true` in the command line and you will get an animated scene of a panda
 
 If `python python2.0.py --sc false --ap false` is issued there will be no camera or panda animation. 
