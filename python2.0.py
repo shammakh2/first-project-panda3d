@@ -4,7 +4,7 @@ from direct.task import Task
 from direct.actor.Actor import Actor
 import argparse
 
-parse_panda_controls = argparse.ArgumentParser(prog="DADIDAUBDIA", usage="python python2.0.py --spinCamera <value> --animatePanda <value>\n For shorthand: python python2.0.py --sc <value> --ap <value> \n For help: python python2.0.py -h", description="Plays a spinning Panda animation. You can pass arguments through commands to stop the spinning camera or stop the panda animation.")
+parse_panda_controls = argparse.ArgumentParser( usage="python python2.0.py --spinCamera <value> --animatePanda <value>\n For shorthand: python python2.0.py --sc <value> --ap <value> \n For help: python python2.0.py -h", description="Plays a spinning Panda animation. You can pass arguments through commands to stop the spinning camera or stop the panda animation.")
 parse_panda_controls.add_argument('--spinCamera', '--sc', type=str,
                                   help="Camera spin: True/False or 1 / 0 (default: %(default)s)", default=True, metavar="")
 parse_panda_controls.add_argument('--animatePanda', '--ap', type=str,
