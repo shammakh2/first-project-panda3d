@@ -24,7 +24,20 @@ You can execute commands by passing in arguments with appropriate keys.
 <br>The keys `--spinCamera` or `--sc` manage the spinning camera
 <br>The keys `--animatePanda` or `--ap` manage panda animations
 
- *Note: All values are set to True by default*
+ *Note: All the keys above are optional and the default value for them is true if left unchanged through a command*
  
- Use this format for the commands in the Terminal or command line
- <br> 
+ Use the example below to format the commands you want to execute in the terminal or command line
+>python python2.0.py --sc <True/False or Integer value> --ap <True/False or Integer value>
+
+Integer value that is `>0` is considered positive
+######Example commands
+Type `python python2.0.py --sc 0 --ap true` in the command line and you will get an animated scene of a panda
+
+If `python python2.0.py --sc false --ap false` is issued there will be no camera or panda animation. 
+
+*Note: Panda sound wont play if it is not animated*
+
+For more information use command:
+>python python2.0.py -h
+
+

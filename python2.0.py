@@ -10,7 +10,6 @@ parse_panda_controls.add_argument('--spinCamera', '--sc', type=str,
 parse_panda_controls.add_argument('--animatePanda', '--ap', type=str,
                                   help="True or False whether to spin the camera or not", default=True)
 parse_panda_args = parse_panda_controls.parse_args()
-print(parse_panda_args.spinCamera)
 
 allow_spin = True
 allow_Panda_Animate = True
@@ -18,11 +17,9 @@ allow_Panda_Animate = True
 try:
 
     if int(parse_panda_args.spinCamera) >= 1 or parse_panda_args.spinCamera.lower() == "true":
-        print(parse_panda_args.spinCamera, "true1")
         allow_spin = True
 
     elif int(parse_panda_args.spinCamera) <= 0 or parse_panda_args.spinCamera.lower() == "false":
-        print(parse_panda_args.spinCamera, "false1")
         allow_spin = False
     else:
         print("The values you entered for --sc or --spinCamera (", parse_panda_args.spinCamera,
@@ -30,11 +27,9 @@ try:
         exit()
 except ValueError:
     if parse_panda_args.spinCamera.lower() == "true":
-        print(parse_panda_args.spinCamera, "true1")
         allow_spin = True
 
     elif parse_panda_args.spinCamera.lower() == "false":
-        print(parse_panda_args.spinCamera, "false1")
         allow_spin = False
     else:
         print("The values you entered for --sc or --spinCamera (", parse_panda_args.spinCamera,
@@ -43,11 +38,9 @@ except ValueError:
 
 try:
     if int(parse_panda_args.animatePanda) >= 1 or parse_panda_args.animatePanda.lower() == "true":
-        print(parse_panda_args.animatePanda, "true2")
         allow_Panda_Animate = True
 
     elif int(parse_panda_args.animatePanda) <= 0 or parse_panda_args.animatePanda.lower() == "false":
-        print(parse_panda_args.animatePanda, "false2")
         allow_Panda_Animate = False
     else:
         print("The values you entered for --ap or --animatePanda (", parse_panda_args.animatePanda,
@@ -55,11 +48,9 @@ try:
         exit()
 except ValueError:
     if parse_panda_args.animatePanda.lower() == "true":
-        print(parse_panda_args.animatePanda, "true2")
         allow_Panda_Animate = True
 
     elif parse_panda_args.animatePanda.lower() == "false":
-        print(parse_panda_args.animatePanda, "false2")
         allow_Panda_Animate = False
     else:
         print("The values you entered for --ap or --animatePanda (", parse_panda_args.animatePanda,
