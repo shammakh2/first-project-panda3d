@@ -1,7 +1,9 @@
 Portfolio 1: Project 1
 ======================
 
-This package is built as a part of the CSC1034: Portfolia-1.
+    >MY REFLECTIVE REPORT is in the Doc folder
+
+This package is built as a part of the CSC1034 Portfolio-1: First Practical.
 
 This is an animation of a panda bear with a camera revolving around it.
 It has sights and sounds of a forest and also bear roars.
