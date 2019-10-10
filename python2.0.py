@@ -2,12 +2,23 @@ from math import pi, sin, cos
 from direct.showbase.ShowBase import ShowBase
 from direct.task import Task
 from direct.actor.Actor import Actor
-import time
+import argparse
 
-class MyApp(ShowBase):
+parse_panda_controls = argparse.ArgumentParser()
+parse_panda_controls.add_argument('--spinCamera', '--sc', type=str,
+                                  help="True or False whether to spin the camera or not", default=True)
+parse_panda_args = parse_panda_controls.parse_args()
+print(parse_panda_args.spinCamera)
+
+if parse_panda_args.spinCamera == 1 or parse_panda_args.spinCamera.lower() == "true":
+    print(parse_panda_args.spinCamera, "true")
+elif parse_panda_args.spinCamera == "0" or parse_panda_args.spinCamera.lower() == "false":
+    print(parse_panda_args.spinCamera, "false")
+
+
+class MyAp(ShowBase):
     def __init__(self):
         ShowBase.__init__(self)
-
 
         self.scene = self.loader.loadModel("models/environment")
         self.scene.reparentTo(self.render)
@@ -18,7 +29,7 @@ class MyApp(ShowBase):
         self.taskMgr.add(self.spinCameraTask, "SpinCameraTask")
 
         # Add 3d panda
-        self.pandaActor= Actor("models/panda-model",{"walk": "models/panda-walk4"})
+        self.pandaActor = Actor("models/panda-model", {"walk": "models/panda-walk4"})
         self.pandaActor.setScale(0.005, 0.005, 0.005)
         self.pandaActor.reparentTo(self.render)
         # Loop panda animation
@@ -27,7 +38,7 @@ class MyApp(ShowBase):
         nature_sound = self.loader.loadSfx("nature.mp3")
         nature_sound.setLoop(True)
         nature_sound.play()
-        bear= self.loader.loadSfx("bear.mp3")
+        bear = self.loader.loadSfx("bear.mp3")
         bear.setLoop(True)
         bear.play()
 
@@ -40,6 +51,4 @@ class MyApp(ShowBase):
         return Task.cont
 
 
-
-MyApp().run()
-
+MyAp().run()
